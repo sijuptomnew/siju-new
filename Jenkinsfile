@@ -1,6 +1,6 @@
 pipeline {
 
-    agent build
+    agent { label "build" }
 
     stages {
         stage("checkout") {
@@ -18,4 +18,4 @@ pipeline {
     }
  }
 
-        
+             
