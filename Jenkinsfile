@@ -1,6 +1,6 @@
 pipeline {
 
-    agent any
+    agent build
 
     stages {
         stage("checkout") {
@@ -8,27 +8,14 @@ pipeline {
                 checkout scm
             }
         }
-
-        stage("build docker image") {
+    
+       stage("Run python hello") {
             steps {
-                sh "sudo docker build -t erp ."
+                sh "python pythonhello.py "
             }
         }
 
-        stage("env cleanup") { 
-            steps {
-                sh "sudo docker image prune -f"
-            }
-        }
+    }
+ }
+
         
-        stage("Launch service") {        
-            steps {
-                sh "sudo docker run -d -p 3001:3001 --name erp erp"
-            }
-
-        } 
-   
-     }
-
-
- }  
