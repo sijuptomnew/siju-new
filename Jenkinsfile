@@ -11,7 +11,7 @@ pipeline {
     
        stage("Run python hello") {
             steps {
-                sh "python pythonhello.py "
+                sh "python3.6 pythonhello.py "
             }
         }
 
