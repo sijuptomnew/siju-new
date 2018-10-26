@@ -1,4 +1,5 @@
-FROM python
-copy test /test
+From python
+Copy test /test
 WORKDIR /test
-ENTRYPOINT  ["python","hello.py"]
+EXPOSE 3001
+
