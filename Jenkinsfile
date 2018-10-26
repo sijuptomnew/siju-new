@@ -14,12 +14,6 @@ pipeline {
                 sh "sudo docker build -t python "
             }
         }
-
-        stage("env cleanup") { 
-            steps {
-                sh "sudo docker image prune -f"
-            }
-        }
         
         stage("Launch service") {        
             steps {
