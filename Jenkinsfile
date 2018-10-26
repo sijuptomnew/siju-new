@@ -9,13 +9,27 @@ pipeline {
             }
         }
     
-       stage("Run python hello") {
+        stage("build docker image") {
             steps {
-                sh "python pythonhello.py "
+                sh "sudo docker build -t python "
             }
         }
+
+        stage("env cleanup") { 
+            steps {
+                sh "sudo docker image prune -f"
+            }
+        }
+        
+        stage("Launch service") {        
+            steps {
+                sh "sudo docker run -d -p 3001:3001 --name python python "
+            }
+
+        } 
+
 
     }
  }
 
-             
+        
