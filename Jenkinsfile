@@ -11,7 +11,7 @@ pipeline {
     
         stage("build docker image") {
             steps {
-                sh "sudo docker build -t python "
+                sh "sudo docker build -t python ."
             }
         }
         
