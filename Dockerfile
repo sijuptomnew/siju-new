@@ -1,6 +1,6 @@
 From python
 Copy test /test
 WORKDIR /test
-CMD Python3.6 
+ENTRYPOINT  ["python3.6","hello.py"]
 
 
