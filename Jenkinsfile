@@ -17,6 +17,7 @@ pipeline {
         
         stage("Launch service") {        
             steps {
+                sh "sudo docker rm python"
                 sh "sudo docker run -d --name python python "
             }
 
